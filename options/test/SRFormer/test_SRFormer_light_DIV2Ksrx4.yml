@@ -48,17 +48,7 @@ datasets:
 # network structures
 network_g:
   type: SRFormer
-  upscale: 4
-  in_chans: 3
-  img_size: 64
-  window_size: 16
-  img_range: 1.
-  depths: [6, 6, 6, 6]
-  embed_dim: 60
-  num_heads: [6, 6, 6, 6]
-  mlp_ratio: 2
-  upsampler: 'pixelshuffledirect'
-  resi_connection: '1conv'
+
 
 
 save_img: false
@@ -66,7 +56,7 @@ print_network: false
 
 # path
 path:
-  pretrain_network_g: PretrainModel/SRFormerLight_SRx4_DIV2K.pth
+  pretrain_network_g: experiments/train_SRFormer_SRx4_scratch/models/net_g_20000.pth
   strict_load_g: true
   param_key_g: params
 
