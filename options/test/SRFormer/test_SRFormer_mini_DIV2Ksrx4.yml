@@ -47,7 +47,7 @@ datasets:
 
 # network structures
 network_g:
-  type: SRFormer
+  type: SRFormer_mini
 
 
 
@@ -56,7 +56,7 @@ print_network: false
 
 # path
 path:
-  pretrain_network_g: drive/MyDrive/CMP784/Model5/net_g_latest.pth
+  pretrain_network_g: drive/MyDrive/CMP784/Model4x4/net_g_60000.pth
   strict_load_g: true
   param_key_g: params
 

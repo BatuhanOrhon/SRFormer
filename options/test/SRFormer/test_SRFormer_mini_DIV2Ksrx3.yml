@@ -1,8 +1,8 @@
-name: SRFormer_DF2k_X4
+name: SRFormer_light_X4
 suffix: ~  # add suffix to saved images
 model_type: SRModel
-scale: 4
-num_gpu: 2  # set num_gpu: 0 for cpu mode
+scale: 3
+num_gpu: 1  # set num_gpu: 0 for cpu mode
 manual_seed: 0
 
 datasets:
@@ -43,23 +43,13 @@ datasets:
       type: disk
 
 
-
 # network structures
 
 # network structures
 network_g:
-  type: SRFormer
-  upscale: 4
-  in_chans: 3
-  img_size: 64
-  window_size: 22
-  img_range: 1.0
-  depths: [6, 6, 6, 6, 6, 6]
-  embed_dim: 180
-  num_heads: [6, 6, 6, 6, 6, 6]
-  mlp_ratio: 2
-  upsampler: pixelshuffle
-  resi_connection: 1conv
+  type: SRFormer_mini
+  upscale: 3
+  window_size: 16
 
 
 save_img: false
@@ -67,12 +57,12 @@ print_network: false
 
 # path
 path:
-  pretrain_network_g: PretrainModel/SRFormer_SRx4_DF2K.pth
+  pretrain_network_g: drive/MyDrive/CMP784/Model4x3/net_g_45000.pth
   strict_load_g: true
   param_key_g: params
 
 val:
-  save_img: true
+  save_img: false
   # 对保存的图片添加后缀，如果是None, 则使用exp name
   suffix: ~
 

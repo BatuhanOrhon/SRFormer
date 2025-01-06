@@ -13,7 +13,7 @@ datasets:
     type: PairedImageDataset
     dataroot_gt: datasets/DIV2K/DIV2K_train_HR
     dataroot_lq: datasets/DIV2K/DIV2K_train_LR_bicubic/X2
-    filename_tmpl: '{}'
+    filename_tmpl: "{}"
     io_backend:
       type: disk
     gt_size: 128
@@ -27,7 +27,6 @@ datasets:
     dataset_enlarge_ratio: 1
     prefetch_mode: ~
 
-
   val_1:
     name: Set5
     type: PairedImageDataset
@@ -38,19 +37,9 @@ datasets:
 
 # network structures
 network_g:
-  type: SRFormer
+  type: SRFormer_mini
   upscale: 2
-  in_chans: 3
-  img_size: 64
-  window_size: 16
-  img_range: 1.
-  depths: [6, 6, 6, 6]
-  embed_dim: 60
-  num_heads: [6, 6, 6, 6]
-  mlp_ratio: 2
-  upsampler: 'pixelshuffledirect'
-  resi_connection: '1conv'
-
+  window_size: 24
 
 print_network: false
 # path
@@ -73,7 +62,7 @@ train:
     gamma: 0.5
 
   total_iter: 500000
-  warmup_iter: -1  # no warm up
+  warmup_iter: -1 # no warm up
 
   # losses
   pixel_opt:
@@ -109,4 +98,3 @@ logger:
 dist_params:
   backend: nccl
   port: 29500
-

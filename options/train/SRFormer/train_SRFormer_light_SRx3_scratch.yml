@@ -12,7 +12,7 @@ datasets:
     type: PairedImageDataset
     dataroot_gt: datasets/DIV2K/DIV2K_train_HR
     dataroot_lq: datasets/DIV2K/DIV2K_train_LR_bicubic/X3
-    filename_tmpl: '{}'
+    filename_tmpl: "{}"
     io_backend:
       type: disk
     gt_size: 288
@@ -27,7 +27,7 @@ datasets:
 
 # network structures
 network_g:
-  type: SRFormer
+  type: SRFormer_mini
   upscale: 3
   window_size: 16
 print_network: false
@@ -51,7 +51,7 @@ train:
     gamma: 0.5
 
   total_iter: 100000
-  warmup_iter: -1  # no warm up
+  warmup_iter: -1 # no warm up
 
   # losses
   pixel_opt:
